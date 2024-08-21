@@ -1,0 +1,28 @@
+<div class="p-10 h-full">
+	<div class="flex justify-between items-center">
+		<div class="flex flex-col">
+			<h1 class="text-[20px] text-gray-800">Lista de tareas</h1>
+			<h2 class="text-sm font-normal text-gray-700 mt-0">Administre y cree tus tareas para organizar tu dia</h2>
+		</div>
+		<div>
+			<button class="task-button" mat-raised-button (click)="openFormTask()">
+				<mat-icon>add</mat-icon>
+				Agregar nueva
+			</button>
+		</div>
+	</div>
+	<div class="flex flex-col items-center gap-4 pb-10">
+			<app-task-item 
+				*ngFor="let task of tasks"
+				[title]="task.title" 
+				[status]="task.status" 
+				[description]="task.description" 
+				[createAt]="task.createAt | transformDate"
+				[id]="task.id"
+				(deleteRequest)="deleteTask($event)"
+				(editRequest)="editTask($event)"
+				(toggleStatusRequest)="toggleStatusTask($event)"
+				class="w-full"
+			/>
+	</div>
+</div>

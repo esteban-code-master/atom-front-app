@@ -1,0 +1,5 @@
+<h2 mat-dialog-title class="text-gray-800 text-sm">{{ data.title }}</h2>
+
+<mat-dialog-content>
+	<ng-container *ngComponentOutlet="data.content; injector: injector"></ng-container>
+</mat-dialog-content>

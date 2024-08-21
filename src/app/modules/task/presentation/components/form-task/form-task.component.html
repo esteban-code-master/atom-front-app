@@ -1,0 +1,18 @@
+<form [formGroup]="taskForm" (ngSubmit)="save()" class="form">
+  <div class="flex flex-col gap-3">
+    <mat-form-field appearance="outline" class="mt-4">
+      <mat-label>Title</mat-label>
+      <input matInput placeholder="title" formControlName="title" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Description</mat-label>
+      <input matInput placeholder="description" formControlName="description" required>
+    </mat-form-field>
+
+    <button mat-raised-button  extended type="submit" class="form-button">
+      <mat-icon>save</mat-icon>
+      Agregar
+    </button>
+  </div>
+</form>
