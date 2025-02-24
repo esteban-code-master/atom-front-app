@@ -5,7 +5,7 @@ import { AuthPageComponent } from "@module/auth/presentation/page/auth-page/auth
 
 const routes: Routes = [
 	{
-		path: "auth",
+		path: "",
 		component: AuthPageComponent
 	}
 ];

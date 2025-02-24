@@ -5,5 +5,6 @@ import {
 @Component({
 	selector: "app-navbar",
 	templateUrl: "./navbar.component.html",
+	standalone: false
 })
 export class NavbarComponent {}

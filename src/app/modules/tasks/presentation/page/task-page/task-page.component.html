@@ -1,0 +1,38 @@
+<div class="p-10 h-full">
+	<div class="flex justify-between items-center">
+		<div class="flex flex-col">
+			<h1 class="text-[20px] text-gray-800">Lista de tareas</h1>
+			<h2 class="text-sm font-normal text-gray-700 mt-0">Administre y cree tus tareas para organizar tu dia</h2>
+		</div>
+		<div>
+			<button class="task-button" mat-raised-button (click)="openFormTask()">
+				<mat-icon>add</mat-icon>
+				Agregar nueva
+			</button>
+		</div>
+	</div>
+
+	<div class="flex flex-col items-center gap-4 pb-10">
+		@for (task of tasks; track task.id) {
+			<app-task-item
+				[title]="task.title"
+				[status]="task.status"
+				[description]="task.description"
+				[id]="task.id"
+				(deleteRequest)="deleteTask(task.id)"
+				(editRequest)="editTask(task)"
+				(toggleStatusRequest)="changeStatus(task.id, task.status)"
+				class="w-full"
+			></app-task-item>
+		}
+	</div>
+
+	<mat-paginator
+		[length]="totalPage"
+		[pageSize]="pageSize"
+		[pageSizeOptions]="[5, 10, 20]"
+		(page)="onPageChange()"
+		class="mt-4 bg-gray-100 p-2 rounded"
+	>
+	</mat-paginator>
+</div>

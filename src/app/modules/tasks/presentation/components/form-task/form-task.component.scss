@@ -1,0 +1,15 @@
+.form-button {
+	background: #ff6600 !important;
+	color: white !important;
+	box-shadow: none !important;
+}
+
+.form{
+  width: 400px;
+}
+
+@media (max-width: 768px) {
+  .form {
+    width: 100%;
+  }
+}

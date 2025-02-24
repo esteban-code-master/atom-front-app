@@ -1,3 +1,5 @@
-export interface User {
-	email: string
+import { Auth } from "./auth"
+
+export interface User extends Auth {
+
 }

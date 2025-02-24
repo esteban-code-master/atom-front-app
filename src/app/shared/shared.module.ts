@@ -7,16 +7,16 @@ import { RouterModule } from "@angular/router";
 import { ModalComponent } from "./components/modal/modal.component";
 import { NavbarComponent } from "./components/navbar/navbar.component";
 import { SidebarComponent } from "./components/sidebar/sidebar.component";
-import { LayoutComponent } from "./layout/layout.component";
+// import { LayoutComponent } from "./layout/layout.component";
 import { TransformDatePipe } from "./pipes/transform";
 
 @NgModule({
 	declarations: [
-		ModalComponent,
-		TransformDatePipe,
-		LayoutComponent,
-		NavbarComponent,
-		SidebarComponent
+		// ModalComponent,
+		// TransformDatePipe,
+		// LayoutComponent,
+		// NavbarComponent,
+		// SidebarComponent
 	],
 	imports: [
 		RouterModule,
@@ -26,11 +26,10 @@ import { TransformDatePipe } from "./pipes/transform";
 		DatePipe
 	],
 	exports: [
-		ModalComponent,
-		TransformDatePipe,
-		LayoutComponent,
-		NavbarComponent,
-		SidebarComponent,
+		// ModalComponent,
+		// TransformDatePipe,
+		// NavbarComponent,
+		// SidebarComponent,
 		MatIconModule
 	]
 })
