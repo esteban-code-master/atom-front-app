@@ -1,12 +1,11 @@
-
 <div class="flex flex-col w-64 h-screen">
-  <div class="p-4 text-lg font-bold">Admin Task</div>
-  <div class="mt-2  flex flex-col justify-center items-center gap-2">
-    <div class="p-2 hover:bg-gray-700 bg-slate-600 rounded-md w-10/12">
-      <a routerLink="/tasks" routerLinkActive="text-white" class="text-white text-center">Task</a> 
-    </div>
-    <div class="p-2 hover:bg-gray-700  rounded-md w-10/12">
-      <a routerLink="/auth" routerLinkActive="text-white" class="text-black text-center">Cerrar session</a>
-    </div>
-  </div>
+	<div class="p-4 text-lg font-bold">Admin Task</div>
+	<div class="mt-2 flex flex-col justify-center items-center gap-2">
+		<div class="p-2 hover:bg-gray-700 bg-slate-600 rounded-md w-10/12">
+			<a routerLink="/tasks" routerLinkActive="text-white" class="text-white text-center">Task</a>
+		</div>
+		<div class="p-2 hover:bg-gray-700 rounded-md w-10/12">
+			<a (click)="signOut()" routerLinkActive="text-white" class="text-black text-center">Cerrar session</a>
+		</div>
+	</div>
 </div>

@@ -6,6 +6,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
 @Component({
 	selector: "app-modal",
 	templateUrl: "./modal.component.html",
+	standalone: false
 })
 export class ModalComponent implements OnInit {
 	injector!: AngularInjector;
