@@ -1,0 +1,11 @@
+<mat-dialog-content>
+	<p>¿Esta seguro que sea eliminar esta task ?</p>
+	<mat-form-field>
+		<mat-label>Favorite Animal</mat-label>
+	</mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+	<button mat-button (click)="onCanceled()">No Thanks</button>
+	<button mat-button (click)="onConfirm()" cdkFocusInitial>Ok</button>
+</mat-dialog-actions>
