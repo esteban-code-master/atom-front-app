@@ -10,7 +10,7 @@ export class TaskItemComponent {
 	@Input() id: string = ""
 	@Input() title: string = ""
 	@Input() description: string = ""
-	@Input() createAt: string = ""
+	@Input() createAt: any = ""
 	@Input() status: TaskStatus = TaskStatus.pending
 
 	@Output() deleteRequest = new EventEmitter<string>()

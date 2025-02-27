@@ -15,6 +15,7 @@ import { ConfirmAction } from "@shared/enum/confirm-action"
 })
 export class FormTaskComponent implements OnInit {
 	taskForm: FormGroup<{ title: FormControl<string>; description: FormControl<string>; id: FormControl<string | null> }>
+	isLoading = false
 
 	constructor(
 		private fb: FormBuilder,
@@ -36,10 +37,18 @@ export class FormTaskComponent implements OnInit {
 			this.taskForm.patchValue(this.data.task)
 		}
 	}
+
 	public save() {
 		const { id, ...task } = this.taskForm.value
 		const userId = localStorage.getItem("USER_ID") ?? ""
 		const isTaskNew = id === ""
+		this.isLoading = true
+
+		if (!this.taskForm.valid) {
+			this.snackBar.showError("Todos los campos son requeridos")
+			this.isLoading = false
+			return
+		}
 
 		if (this.taskForm.valid && isTaskNew) {
 			this.onCreateTask({
@@ -47,6 +56,7 @@ export class FormTaskComponent implements OnInit {
 				title: task.title ?? "",
 				userId: userId,
 			})
+
 			return
 		}
 
@@ -60,6 +70,7 @@ export class FormTaskComponent implements OnInit {
 			next: () => {
 				this.snackBar.showSuccess("tarea creada correctamente")
 				this.dialogRef.close(ConfirmAction.ok)
+				this.isLoading = true
 			},
 			error: () => {
 				this.snackBar.showError("ha ocurrido un error al crear una tarea")
@@ -72,10 +83,15 @@ export class FormTaskComponent implements OnInit {
 			next: () => {
 				this.snackBar.showSuccess("tarea actualizada correctamente")
 				this.dialogRef.close(ConfirmAction.ok)
+				this.isLoading = true
 			},
 			error: () => {
 				this.snackBar.showError("ha ocurrido un error al actualizar tu  tarea")
 			},
 		})
+	}
+
+	public close() {
+		this.dialogRef.close()
 	}
 }

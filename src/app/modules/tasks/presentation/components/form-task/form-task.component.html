@@ -10,9 +10,13 @@
 			<input matInput placeholder="description" formControlName="description" required />
 		</mat-form-field>
 
-		<button mat-flat-button extended type="submit" class="form-button">
-			<mat-icon>save</mat-icon>
-			Agregar
-		</button>
+		<div class="flex justify-between gap-3">
+			<button mat-button color="primary" (click)="close()">Cancelar</button>
+
+			<app-button-sync mat-flat-button extended type="submit" [isLoading]="isLoading" [classes]="'form-button'">
+				<mat-icon>save</mat-icon>
+				Agregar
+			</app-button-sync>
+		</div>
 	</div>
 </form>

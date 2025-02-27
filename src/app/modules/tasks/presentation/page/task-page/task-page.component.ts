@@ -21,6 +21,7 @@ export class TaskPageComponent implements OnInit {
 	pageSize: number = 10
 	totalPage: number = 1
 	lastVisibleId: string | null = ""
+	isLoading: boolean = false
 
 	constructor(
 		private findTaskUseCase: FindTaskUseCase,
@@ -30,6 +31,7 @@ export class TaskPageComponent implements OnInit {
 	) {}
 
 	ngOnInit(): void {
+		this.isLoading = true
 		this.findTask()
 	}
 
@@ -38,6 +40,7 @@ export class TaskPageComponent implements OnInit {
 			this.tasks = tasks.data
 			this.totalPage = tasks.totalPage
 			this.lastVisibleId = tasks.lastVisibleId
+			this.isLoading = false
 		})
 	}
 
@@ -51,6 +54,7 @@ export class TaskPageComponent implements OnInit {
 				title: "Escribe tus notas y no lo olvides",
 				content: FormTaskComponent,
 			},
+			disableClose: true,
 		})
 
 		dialog.afterClosed().subscribe((result) => {

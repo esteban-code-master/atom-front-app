@@ -7,7 +7,7 @@ import { SidebarComponent } from "@shared/components/sidebar/sidebar.component"
 import { FindTaskUseCase } from "@module/tasks/application/use-case/find-task.use-case"
 import { TaskRepositoryImpl } from "@module/tasks/infrastructure/repository/task.repository.impl"
 import { HttpClientModule } from "@angular/common/http"
-import { CommonModule, DatePipe } from "@angular/common"
+import { CommonModule } from "@angular/common"
 import { TaskItemComponent } from "@module/tasks/presentation/components/task-item/task-item.component"
 import { MatCheckboxModule } from "@angular/material/checkbox"
 import { MatIconModule } from "@angular/material/icon"
@@ -25,7 +25,10 @@ import { DeleteTaskUseCase } from "./application/use-case/delete-task.use-case"
 import { UpdateTaskUseCase } from "./application/use-case/update-task.use-case"
 import { MatInputModule } from "@angular/material/input"
 import { MatButtonModule } from "@angular/material/button"
-import { TransformDatePipe } from "@shared/pipes/transform"
+import { MatMenuModule } from "@angular/material/menu"
+import { FirebaseTimestampPipe } from "@shared/pipes/firebase-date"
+import { MatProgressBarModule } from "@angular/material/progress-bar"
+import { SharedModule } from "@shared/shared.module"
 
 @NgModule({
 	imports: [
@@ -42,7 +45,9 @@ import { TransformDatePipe } from "@shared/pipes/transform"
 		MatDialogModule,
 		MatInputModule,
 		MatButtonModule,
-		DatePipe,
+		MatMenuModule,
+		MatProgressBarModule,
+		SharedModule,
 	],
 	declarations: [
 		TaskPageComponent,
@@ -52,7 +57,7 @@ import { TransformDatePipe } from "@shared/pipes/transform"
 		TaskItemComponent,
 		FormTaskComponent,
 		DeleteTaskComponent,
-		TransformDatePipe,
+		FirebaseTimestampPipe,
 	],
 	providers: [
 		FindTaskUseCase,

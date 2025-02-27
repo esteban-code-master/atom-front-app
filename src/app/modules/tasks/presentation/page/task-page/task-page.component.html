@@ -1,4 +1,4 @@
-<div class="p-10 h-full">
+<div class="p-10 h-full flex flex-col" *ngIf="!isLoading">
 	<div class="flex justify-between items-center">
 		<div class="flex flex-col">
 			<h1 class="text-[20px] text-gray-800">Lista de tareas</h1>
@@ -12,12 +12,13 @@
 		</div>
 	</div>
 
-	<div class="flex flex-col items-center gap-4 pb-10">
+	<div class="flex flex-col items-center gap-4 flex-1">
 		@for (task of tasks; track task.id) {
 			<app-task-item
 				[title]="task.title"
 				[status]="task.status"
 				[description]="task.description"
+				[createAt]="task.createAt"
 				[id]="task.id"
 				(deleteRequest)="deleteTask(task.id)"
 				(editRequest)="editTask(task)"
@@ -25,14 +26,31 @@
 				class="w-full"
 			></app-task-item>
 		}
+
+		@if (tasks.length === 0) {
+			<div class="h-full w-full border-4 rounded-lg bg-white flex flex-col justify-center items-center">
+				<div class="w-[150px]">
+					<img src="/assets/images/emty.png" alt="empty" class="w-full h-full object-cover" />
+				</div>
+				<p>Sin Taras creadas !</p>
+			</div>
+		}
 	</div>
 
-	<mat-paginator
-		[length]="totalPage"
-		[pageSize]="pageSize"
-		[pageSizeOptions]="[5, 10, 20]"
-		(page)="onPageChange()"
-		class="mt-4 bg-gray-100 p-2 rounded"
-	>
-	</mat-paginator>
+	<div class="sticky bottom-0">
+		<mat-paginator
+			[length]="totalPage"
+			[pageSize]="pageSize"
+			[pageSizeOptions]="[5, 10, 20]"
+			(page)="onPageChange()"
+			class="mt-4 bg-gray-100 p-2 rounded"
+		>
+		</mat-paginator>
+	</div>
+</div>
+
+<div *ngIf="isLoading" class="p-10 h-full flex justify-center items-center">
+	<div class="w-3/6">
+		<mat-progress-bar class="w-full" mode="indeterminate"></mat-progress-bar>
+	</div>
 </div>
