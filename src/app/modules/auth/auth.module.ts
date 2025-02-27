@@ -17,10 +17,13 @@ import { AuthRepositoryImpl } from "./infrastructure/repository/auth.repository-
 import { AuthUserUserCase } from "./application/use-case/auth-user.user-case"
 import { SessionRepository } from "./domain/repository/session.repository"
 import { SessionRepositoryImpl } from "./infrastructure/repository/session.repository-impl"
-import { ButtonSyncComponent } from "../../shared/components/button-sync/button-sync.component"
+import { SharedModule } from "@shared/shared.module"
+import { MatProgressBarModule } from "@angular/material/progress-bar"
+import { MatIconModule } from "@angular/material/icon"
+import { CreateUserComponent } from "./presentation/components/create-user/create-user.component"
 
 @NgModule({
-	declarations: [AuthPageComponent],
+	declarations: [AuthPageComponent, CreateUserComponent],
 	imports: [
 		CommonModule,
 		MatCardModule,
@@ -29,11 +32,12 @@ import { ButtonSyncComponent } from "../../shared/components/button-sync/button-
 		AuthRoutingModule,
 		MatFormFieldModule,
 		MatInputModule,
-		MatButtonModule,
-		MatCardModule,
+		MatIconModule,
 		MatLabel,
 		MatDialogModule,
-		ButtonSyncComponent,
+		MatProgressBarModule,
+		MatButtonModule,
+		SharedModule,
 	],
 	providers: [
 		AuthUserUserCase,

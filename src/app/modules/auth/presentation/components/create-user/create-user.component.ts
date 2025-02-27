@@ -1,19 +1,16 @@
 import { Component, Inject } from "@angular/core"
-import { MatButtonModule } from "@angular/material/button"
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog"
 import { Router } from "@angular/router"
 import { CreateUserUseCase } from "@module/auth/application/use-case/create-user.use-case"
-import { ButtonSyncComponent } from "@shared/components/button-sync/button-sync.component"
 import { SnackBar } from "@shared/components/snackbar/snackbar.service"
 
 @Component({
 	selector: "app-confirm-dialog",
 	templateUrl: "./create-user.component.html",
-	imports: [MatButtonModule, ButtonSyncComponent],
-	standalone: true,
+	standalone: false,
 })
 export class CreateUserComponent {
-	isLoading = false
+	public isLoading = false
 
 	constructor(
 		private createUserCase: CreateUserUseCase,
