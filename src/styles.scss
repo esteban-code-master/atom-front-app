@@ -3,34 +3,34 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
+* {
 	text-decoration: none;
+	box-sizing: border-box;
 }
 html,
 body {
 	height: 100%;
 	margin: 0;
-  padding: 0;
-  height: 100%;
+	padding: 0;
+	height: 100%;
 }
 
 body {
 	margin: 0;
 	font-family: sans-serif;
-	
 }
 
-.task-disabled  .line-through-custom {
+.task-disabled .line-through-custom {
 	text-decoration: line-through;
 }
-.close-auth{
+.close-auth {
 	display: none !important;
 }
 @media (max-width: 768px) {
-  .sidebar {
-    display: none;
-  }
-	.close-auth{
+	.sidebar {
+		display: none;
+	}
+	.close-auth {
 		display: block !important;
 	}
 }
