@@ -1,10 +1,10 @@
 <div>
 	<p>
-		El usuario con el correo <strong>{{ data.email }}</strong> no existe.
+		El usuario con el correo <strong class="bg-orange-100 rounded-lg px-2">{{ data.email }}</strong> no existe.
 	</p>
 	<p>¿Deseas crear una nueva cuenta?</p>
 	<div class="flex justify-between">
 		<button mat-button color="primary" (click)="onCancel()">Cancelar</button>
-		<button mat-button color="primary" (click)="onConfirm()">Ok</button>
+		<app-button-sync [isLoading]="isLoading" [classes]="'!p-5'" (click)="onConfirm()"> Ok </app-button-sync>
 	</div>
 </div>

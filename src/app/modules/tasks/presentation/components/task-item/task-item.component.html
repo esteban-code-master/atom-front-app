@@ -7,8 +7,9 @@
 		<div class="line-through-custom">{{ description }}</div>
 		<div class="flex justify-between w-ful">
 			<div class="flex items-center mt-4 bg-green-500 px-2 rounded-full tw-h-[20px]">
-				<div class="text-[9px] line-through-custom">{{ createAt }}</div>
+				<div class="line-through-custom">{{ createAt | firebaseTimestamp }}</div>
 			</div>
+
 			<div class="flex gap-2">
 				<button mat-icon-button (click)="deleteTask()">
 					<mat-icon class="text-blue-950">delete</mat-icon>

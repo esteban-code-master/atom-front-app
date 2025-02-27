@@ -1,0 +1,12 @@
+<button
+	mat-raised-button
+	[color]="color"
+	[disabled]="isLoading || disabled"
+	[ngClass]="classes"
+	class="w-full !shadow-none"
+>
+	<div class="flex items-center justify-between gap-4 w-full">
+		<mat-spinner *ngIf="isLoading" diameter="20"></mat-spinner>
+		<ng-content />
+	</div>
+</button>
