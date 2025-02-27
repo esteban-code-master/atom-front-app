@@ -1,12 +1,21 @@
-<div class="flex items-center justify-center min-h-screen bg-[#eef2f6]">
-  <mat-card class="w-full max-w-sm p-8 text-center bg-white">
-    <h1 class="text-2xl font-bold mb-6">Login</h1>
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-      <mat-form-field class="w-full mb-4" appearance="outline">
-        <mat-label>Email</mat-label>
-        <input  matInput type="email" placeholder="Ingresa tu email" formControlName="email" />
-      </mat-form-field>
-      <button mat-raised-button color="primary" class="w-full">Login</button>
-    </form>
-  </mat-card>
+<div class="flex items-center justify-center min-h-screen md:bg-[#eef2f6] sm:bg-none">
+	<mat-card class="w-full max-w-sm p-8 text-center bg-white">
+		<div class="">
+			<img
+				src="https://atomchat.io/wp-content/uploads/2023/03/logo-atom-chat.png"
+				alt=""
+				class="img w-[100px] h-[30px]"
+			/>
+
+			<h1 class="text-2xl font-bold mb-6">Login</h1>
+		</div>
+		<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+			<mat-form-field class="w-full mb-4" appearance="outline">
+				<mat-label>Email</mat-label>
+				<input matInput type="email" placeholder="Ingresa tu email" formControlName="email" />
+			</mat-form-field>
+
+			<app-button-sync [isLoading]="isLoading" [classes]="'!p-5'"> Iniciar Session </app-button-sync>
+		</form>
+	</mat-card>
 </div>
