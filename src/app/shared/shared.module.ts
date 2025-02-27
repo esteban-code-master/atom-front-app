@@ -1,36 +1,12 @@
-import { CommonModule, DatePipe } from "@angular/common";
-import { NgModule } from "@angular/core";
-import { MatDialogModule } from "@angular/material/dialog";
-import { MatIconModule } from "@angular/material/icon";
-import { RouterModule } from "@angular/router";
-
-import { ModalComponent } from "./components/modal/modal.component";
-import { NavbarComponent } from "./components/navbar/navbar.component";
-import { SidebarComponent } from "./components/sidebar/sidebar.component";
-// import { LayoutComponent } from "./layout/layout.component";
-import { TransformDatePipe } from "./pipes/transform";
+import { NgModule } from "@angular/core"
+import { ButtonSyncComponent } from "./components/button-sync/button-sync.component"
+import { MatButtonModule } from "@angular/material/button"
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner"
+import { CommonModule } from "@angular/common"
 
 @NgModule({
-	declarations: [
-		// ModalComponent,
-		// TransformDatePipe,
-		// LayoutComponent,
-		// NavbarComponent,
-		// SidebarComponent
-	],
-	imports: [
-		RouterModule,
-		CommonModule,
-		MatDialogModule,
-		MatIconModule,
-		DatePipe
-	],
-	exports: [
-		// ModalComponent,
-		// TransformDatePipe,
-		// NavbarComponent,
-		// SidebarComponent,
-		MatIconModule
-	]
+	declarations: [ButtonSyncComponent],
+	imports: [CommonModule, MatButtonModule, MatProgressSpinnerModule],
+	exports: [ButtonSyncComponent],
 })
 export class SharedModule {}
