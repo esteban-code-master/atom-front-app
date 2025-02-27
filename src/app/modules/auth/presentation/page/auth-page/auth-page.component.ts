@@ -49,6 +49,7 @@ export class AuthPageComponent {
 						content: CreateUserComponent,
 						email: email,
 					},
+					disableClose: true,
 				})
 			}
 
